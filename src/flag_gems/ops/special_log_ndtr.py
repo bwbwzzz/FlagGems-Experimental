@@ -3,6 +3,7 @@ import logging
 
 import triton
 import triton.language as tl
+import triton.language.extra.libdevice as libdevice
 
 from flag_gems.utils import pointwise_dynamic
 
@@ -12,15 +13,30 @@ logger = logging.getLogger(__name__)
 @pointwise_dynamic(promotion_methods=[(0, "DEFAULT")])
 @triton.jit
 def special_log_ndtr_func(x):
-    # Compute log(cdf(x)) where cdf is the standard normal cumulative distribution
-    # cdf(x) = 0.5 * (1 + erf(x / sqrt(2)))
-    # log_ndtr(x) = log(0.5 * (1 + erf(x / sqrt(2))))
+    # log(Phi(x)) where Phi is the standard normal CDF.
+    # The naive log(0.5 * (1 + erf(x / sqrt(2)))) loses accuracy for negative x:
+    # in float32, erf(x/sqrt(2)) approaches -1 with only ~7 significant digits,
+    # so 1 + erf undergoes catastrophic cancellation (e.g. at x~-4 it is ~1e-4
+    # with ~1e-3 relative error), and log() turns that into large absolute error.
+    #
+    # Mirror PyTorch's calc_log_ndtr to stay float32-accurate. Let t = x/sqrt(2):
+    #   x <  -1 : log(erfcx(-t) / 2) - t*t   (erfcx = exp(z^2)*erfc(z); keeps the
+    #             far-negative tail accurate where erfc(-t) itself underflows)
+    #   x >= -1 : log1p(-erfc(t) / 2)        (log1p avoids the 1+erf cancellation)
+    #
+    # Both branches are computed but only the selected one is kept, so each just
+    # needs to be well-defined where chosen. The head branch is only chosen for
+    # x >= -1, where erfc(t)/2 <= 0.85, so log1p never sees an arg <= -1.
+    # nan / inf inputs propagate naturally (no clamps that would swallow nan).
     SQRT_HALF = 0.7071067811865476  # 1 / sqrt(2)
     x_fp32 = x.to(tl.float32)
-    erf_result = tl.math.erf(x_fp32 * SQRT_HALF)
-    cdf_value = 0.5 * (1.0 + erf_result)
-    log_cdf = tl.log(cdf_value)
-    return log_cdf.to(x.dtype)
+    t = x_fp32 * SQRT_HALF
+
+    log_ndtr_tail = tl.log(0.5 * libdevice.erfcx(-t)) - t * t
+    log_ndtr_head = libdevice.log1p(-0.5 * libdevice.erfc(t))
+
+    result = tl.where(x_fp32 < -1.0, log_ndtr_tail, log_ndtr_head)
+    return result.to(x.dtype)
 
 
 def special_log_ndtr(A):
