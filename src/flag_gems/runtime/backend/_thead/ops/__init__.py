@@ -50,6 +50,7 @@ from .special_hermite_polynomial_h import (
     special_hermite_polynomial_h,
     special_hermite_polynomial_h_tensor_tensor,
 )
+from .special_round import special_round
 from .special_shifted_chebyshev_polynomial_w import (
     special_shifted_chebyshev_polynomial_w,
 )
@@ -103,6 +104,7 @@ __all__ = [
     "special_gammainc",
     "special_hermite_polynomial_h",
     "special_hermite_polynomial_h_tensor_tensor",
+    "special_round",
     "special_shifted_chebyshev_polynomial_w",
     "tile",
     "unbind_copy",
