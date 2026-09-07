@@ -99,6 +99,7 @@ from .special_chebyshev_polynomial_w import (
     special_chebyshev_polynomial_w_out,
 )
 from .split_with_sizes_copy import split_with_sizes_copy
+from .thnn_fused_lstm_cell_backward_impl import _thnn_fused_lstm_cell_backward_impl
 from .tile import tile
 from .unique import _unique2
 from .upsample_nearest2d import upsample_nearest2d
@@ -114,6 +115,7 @@ from .weight_norm import (
 
 __all__ = [
     "_amp_foreach_non_finite_check_and_unscale_",
+    "_thnn_fused_lstm_cell_backward_impl",
     "_unique2",
     "adaptive_max_pool3d_backward",
     "avg_pool3d_backward",
