@@ -17,6 +17,7 @@ from ._flash_attention_forward import _flash_attention_forward
 from .adaptive_max_pool3d_backward import adaptive_max_pool3d_backward
 from .addmm_ import addmm_
 from .addmv_ import addmv_
+from .as_strided_scatter import as_strided_scatter
 from .broadcast_tensors import broadcast_tensors
 from .broadcast_to import broadcast_to
 from .cholesky_inverse import cholesky_inverse
@@ -67,6 +68,7 @@ __all__ = [
     "adaptive_max_pool3d_backward",
     "addmm_",
     "addmv_",
+    "as_strided_scatter",
     "broadcast_tensors",
     "broadcast_to",
     "cholesky_inverse",
