@@ -14,6 +14,7 @@
 
 
 from ._flash_attention_forward import _flash_attention_forward
+from ._resize_output_ import _resize_output_
 from .adaptive_max_pool3d_backward import adaptive_max_pool3d_backward
 from .addmm_ import addmm_
 from .addmv_ import addmv_
@@ -66,6 +67,7 @@ from .unbind_copy import unbind_copy
 
 __all__ = [
     "_flash_attention_forward",
+    "_resize_output_",
     "adaptive_max_pool3d_backward",
     "addmm_",
     "addmv_",
