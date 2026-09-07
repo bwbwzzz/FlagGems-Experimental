@@ -26,6 +26,7 @@ from .attention import (
     scaled_dot_product_attention_forward,
 )
 from .avg_pool3d_backward import avg_pool3d_backward
+from .batch_norm_no_update import _batch_norm_no_update
 from .broadcast_tensors import broadcast_tensors
 from .broadcast_to import broadcast_to
 from .conj_physical import conj_physical
@@ -114,6 +115,7 @@ from .weight_norm import (
 
 __all__ = [
     "_amp_foreach_non_finite_check_and_unscale_",
+    "_batch_norm_no_update",
     "_unique2",
     "adaptive_max_pool3d_backward",
     "avg_pool3d_backward",
