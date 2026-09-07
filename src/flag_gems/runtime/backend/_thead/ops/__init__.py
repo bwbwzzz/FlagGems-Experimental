@@ -13,6 +13,7 @@
 # limitations under the License.
 
 
+from ._flash_attention_forward import _flash_attention_forward
 from .adaptive_max_pool3d_backward import adaptive_max_pool3d_backward
 from .addmm_ import addmm_
 from .addmv_ import addmv_
@@ -56,6 +57,7 @@ from .tile import tile
 from .unbind_copy import unbind_copy
 
 __all__ = [
+    "_flash_attention_forward",
     "adaptive_max_pool3d_backward",
     "addmm_",
     "addmv_",
