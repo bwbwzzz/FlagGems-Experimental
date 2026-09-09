@@ -33,6 +33,7 @@ from .broadcast_tensors import broadcast_tensors
 from .broadcast_to import broadcast_to
 from .conj_physical import conj_physical
 from .cudnn_convolution import cudnn_convolution
+from .diagonal_scatter import diagonal_scatter
 from .diff import diff
 from .div import (
     div_mode,
@@ -244,4 +245,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "diagonal_scatter",
 ]
