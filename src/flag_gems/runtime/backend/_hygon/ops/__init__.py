@@ -83,6 +83,7 @@ from .max_unpool2d import max_unpool2d
 from .median import median_dim, median_dim_values
 from .mm import mm
 from .mul import mul, mul_
+from .mvlgamma import mvlgamma
 from .nansum import nansum, nansum_out
 from .nll_loss_backward import heur_block_n, nll_loss_backward
 from .per_token_group_quant_fp8 import SUPPORTED_FP8_DTYPE, per_token_group_quant_fp8
@@ -244,4 +245,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "mvlgamma",
 ]
