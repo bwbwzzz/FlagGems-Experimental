@@ -29,6 +29,7 @@ from .attention import (
     scaled_dot_product_attention_forward,
 )
 from .avg_pool3d_backward import avg_pool3d_backward
+from .beam_search_score import beam_search_score
 from .broadcast_tensors import broadcast_tensors
 from .broadcast_to import broadcast_to
 from .conj_physical import conj_physical
@@ -244,4 +245,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "beam_search_score",
 ]
