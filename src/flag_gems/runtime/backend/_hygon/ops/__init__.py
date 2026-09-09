@@ -71,6 +71,7 @@ from .linalg_solve_triangular import (
     linalg_solve_triangular_out,
 )
 from .log_normal_ import log_normal_
+from .masked_scale import masked_scale
 from .masked_scatter_backward import masked_scatter_backward
 from .matmul_bf16 import matmul_bf16
 from .matmul_int8 import matmul_int8
@@ -244,4 +245,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "masked_scale",
 ]
