@@ -112,10 +112,8 @@ from .silu import silu, silu_, silu_backward
 from .softplus_backward import softplus_backward
 from .sort import sort, sort_stable
 from .special_chebyshev_polynomial_v import special_chebyshev_polynomial_v
-from .special_chebyshev_polynomial_w import (
-    special_chebyshev_polynomial_w,
-    special_chebyshev_polynomial_w_out,
-)
+from .special_chebyshev_polynomial_w import special_chebyshev_polynomial_w
+from .special_chebyshev_polynomial_w_out import special_chebyshev_polynomial_w_out
 from .split_with_sizes_copy import split_with_sizes_copy
 from .tile import tile
 from .unique import _unique2
