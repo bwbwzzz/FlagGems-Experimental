@@ -32,6 +32,7 @@ from .avg_pool3d_backward import avg_pool3d_backward
 from .broadcast_tensors import broadcast_tensors
 from .broadcast_to import broadcast_to
 from .conj_physical import conj_physical
+from .conv_depthwise2d import conv_depthwise2d
 from .cudnn_convolution import cudnn_convolution
 from .diff import diff
 from .div import (
@@ -244,4 +245,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "conv_depthwise2d",
 ]
