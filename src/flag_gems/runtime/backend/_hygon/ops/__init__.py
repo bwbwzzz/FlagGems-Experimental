@@ -117,6 +117,7 @@ from .special_chebyshev_polynomial_w import (
     special_chebyshev_polynomial_w_out,
 )
 from .split_with_sizes_copy import split_with_sizes_copy
+from .thnn_fused_lstm_cell import thnn_fused_lstm_cell
 from .tile import tile
 from .unique import _unique2
 from .unique_dim import unique_dim
@@ -244,4 +245,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "thnn_fused_lstm_cell",
 ]
