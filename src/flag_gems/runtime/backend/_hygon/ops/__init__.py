@@ -102,6 +102,7 @@ from .replication_pad2d_backward import (
     replication_pad2d_backward_grad_input,
 )
 from .scatter import scatter, scatter_
+from .scatter_add import scatter_add
 from .searchsorted import (
     searchsorted,
     searchsorted_out,
@@ -244,4 +245,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "scatter_add",
 ]
