@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from ._flash_attention_forward import _flash_attention_forward
+
 # Hygon internal implementation for attention
 from ._scaled_dot_product_flash_attention import _scaled_dot_product_flash_attention
 from .adaptive_max_pool3d_backward import adaptive_max_pool3d_backward
@@ -239,4 +241,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "_flash_attention_forward",
 ]
