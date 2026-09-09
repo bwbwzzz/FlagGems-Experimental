@@ -20,6 +20,7 @@ from .adaptive_avg_pool2d_backward import adaptive_avg_pool2d_backward
 from .adaptive_max_pool3d_backward import adaptive_max_pool3d_backward
 from .addr import addr
 from .any import any, any_dim, any_dims
+from .as_strided_scatter import as_strided_scatter
 from .attention import (
     ScaleDotProductAttention,
     flash_attention_forward,
@@ -244,4 +245,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "as_strided_scatter",
 ]
