@@ -18,6 +18,7 @@ from ._flash_attention_forward import _flash_attention_forward
 from ._scaled_dot_product_flash_attention import _scaled_dot_product_flash_attention
 from .adaptive_avg_pool2d_backward import adaptive_avg_pool2d_backward
 from .adaptive_max_pool3d_backward import adaptive_max_pool3d_backward
+from .addmv_ import addmv_
 from .addr import addr
 from .any import any, any_dim, any_dims
 from .attention import (
@@ -244,4 +245,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "addmv_",
 ]
