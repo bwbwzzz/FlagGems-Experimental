@@ -15,11 +15,18 @@
 from torch_musa import current_device, get_device_capability
 
 from ._conj import _conj
+from ._thnn_fused_lstm_cell_backward_impl import _thnn_fused_lstm_cell_backward_impl
+from ._upsample_bilinear2d_aa import _upsample_bilinear2d_aa
+from ._upsample_nearest_exact2d_backward import _upsample_nearest_exact2d_backward
+from .adaptive_avg_pool2d_backward import _adaptive_avg_pool2d_backward
 from .all import all, all_dim, all_dims
 from .amax import amax
 from .any import any, any_dim, any_dims
 from .arange import arange, arange_start
+from .arctan2 import arctan2
 from .argmin import argmin
+from .atan2 import atan2
+from .atan2_ import atan2_
 from .batch_norm import batch_norm, batch_norm_backward
 from .bucketize import bucketize
 from .celu import celu
@@ -38,17 +45,24 @@ from .div import (
 from .dropout import dropout, dropout_backward
 from .erfinv import erfinv
 from .erfinv_ import erfinv_
+from .expand_copy import expand_copy
 from .feature_dropout import feature_dropout_
 from .flip import flip
 from .fmod_ import fmod_, fmod_scalar_, fmod_tensor_
 from .gather import gather, gather_backward
+from .gcd_ import gcd_
+from .grid_sampler_3d_backward import grid_sampler_3d_backward
 from .histc import histc
 from .im2col import im2col
 from .index_add import index_add, index_add_
 from .index_copy_ import index_copy, index_copy_
 from .index_put import _index_put_impl_, index_put, index_put_
 from .index_select import index_select
+from .kthvalue import kthvalue
+from .lcm_ import lcm_
+from .lift_out import lift_out
 from .linalg_cholesky import linalg_cholesky
+from .linalg_ldl_factor_ex import ldl_factor_ex
 from .linear import linear
 from .log import log
 from .log10 import log10, log10_, log10_out
@@ -60,11 +74,13 @@ from .log_softmax import (
     log_softmax_out,
 )
 from .max import max, max_dim
+from .max_pool2d_with_indices_backward import max_pool2d_with_indices_backward
 from .median import median, median_dim, median_dim_values, median_out
 from .min import min, min_dim
 from .mish import mish, mish_
 from .mode import mode
 from .mul import mul, mul_
+from .mvlgamma import mvlgamma
 from .nonzero_numpy import nonzero_numpy
 from .norm import norm, norm_scalar, norm_scalaropt_dim
 from .normal import normal_
@@ -91,17 +107,26 @@ from .resolve_conj import resolve_conj
 from .round_ import round_
 from .softplus_backward import softplus_backward
 from .sort import sort, sort_stable
+from .special_bessel_j1 import special_bessel_j1
+from .special_erfcx import special_erfcx
 from .special_gammainc import special_gammainc
+from .special_round import special_round
+from .special_round_out import special_round_out
 from .tile import tile
 from .trunc import trunc, trunc_
 from .unique import _unique2
+from .upsample_bilinear2d import upsample_bilinear2d
 from .upsample_linear1d_backward import upsample_linear1d_backward
 from .w8a8_block_fp8_matmul import w8a8_block_fp8_matmul
 from .zeros import zero_, zeros
 from .zeros_like import zeros_like
 
 __all__ = [
+    "_adaptive_avg_pool2d_backward",
     "_conj",
+    "_thnn_fused_lstm_cell_backward_impl",
+    "_upsample_bilinear2d_aa",
+    "_upsample_nearest_exact2d_backward",
     "amax",
     "all",
     "all_dim",
@@ -111,7 +136,10 @@ __all__ = [
     "any_dims",
     "arange",
     "arange_start",
+    "arctan2",
     "argmin",
+    "atan2",
+    "atan2_",
     "batch_norm",
     "batch_norm_backward",
     "bucketize",
@@ -125,6 +153,7 @@ __all__ = [
     "dropout_backward",
     "erfinv",
     "erfinv_",
+    "expand_copy",
     "feature_dropout_",
     "flip",
     "fmod_",
@@ -132,6 +161,8 @@ __all__ = [
     "fmod_tensor_",
     "gather",
     "gather_backward",
+    "gcd_",
+    "grid_sampler_3d_backward",
     "histc",
     "im2col",
     "index_add",
@@ -142,6 +173,10 @@ __all__ = [
     "index_put_",
     "_index_put_impl_",
     "index_select",
+    "kthvalue",
+    "lcm_",
+    "ldl_factor_ex",
+    "lift_out",
     "linalg_cholesky",
     "linear",
     "log",
@@ -155,6 +190,7 @@ __all__ = [
     "log_softmax_out",
     "max",
     "max_dim",
+    "max_pool2d_with_indices_backward",
     "median",
     "median_dim",
     "median_dim_values",
@@ -166,6 +202,7 @@ __all__ = [
     "mode",
     "mul",
     "mul_",
+    "mvlgamma",
     "nonzero_numpy",
     "norm",
     "norm_scalar",
@@ -195,7 +232,11 @@ __all__ = [
     "softplus_backward",
     "sort",
     "sort_stable",
+    "special_bessel_j1",
+    "special_erfcx",
     "special_gammainc",
+    "special_round",
+    "special_round_out",
     "tile",
     "true_divide",
     "true_divide_",
@@ -207,6 +248,7 @@ __all__ = [
     "_unique2",
     "trunc",
     "trunc_",
+    "upsample_bilinear2d",
     "upsample_linear1d_backward",
     "w8a8_block_fp8_matmul",
     "zero_",
