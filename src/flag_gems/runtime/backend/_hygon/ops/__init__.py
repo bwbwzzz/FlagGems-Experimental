@@ -116,6 +116,9 @@ from .special_chebyshev_polynomial_w import (
     special_chebyshev_polynomial_w,
     special_chebyshev_polynomial_w_out,
 )
+from .special_shifted_chebyshev_polynomial_u import (
+    special_shifted_chebyshev_polynomial_u,
+)
 from .split_with_sizes_copy import split_with_sizes_copy
 from .tile import tile
 from .unique import _unique2
@@ -244,4 +247,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "special_shifted_chebyshev_polynomial_u",
 ]
