@@ -57,6 +57,7 @@ from .fill import (
     fill_tensor_,
     fill_tensor_out,
 )
+from .fused_moving_avg_obs_fq_helper import fused_moving_avg_obs_fq_helper
 from .gelu import gelu, gelu_, gelu_backward
 from .hadamard_transform import hadamard_transform
 from .index_add import index_add, index_add_
@@ -244,4 +245,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "fused_moving_avg_obs_fq_helper",
 ]
