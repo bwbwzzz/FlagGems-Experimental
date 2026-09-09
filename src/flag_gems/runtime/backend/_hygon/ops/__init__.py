@@ -49,6 +49,7 @@ from .div import (
 )
 from .exponential import exponential
 from .exponential_ import exponential_
+from .feature_dropout import feature_dropout
 from .fill import (
     fill_scalar,
     fill_scalar_,
@@ -244,4 +245,5 @@ __all__ = [
     "weight_norm_except_dim_backward",
     "weight_norm_interface",
     "weight_norm_interface_backward",
+    "feature_dropout",
 ]
