@@ -120,7 +120,7 @@ from .split_with_sizes_copy import split_with_sizes_copy
 from .tile import tile
 from .unique import _unique2
 from .unique_dim import unique_dim
-from .unsqueeze import unsqueeze
+from .unsqueeze import unsqueeze, unsqueeze_
 from .unsqueeze_ import unsqueeze_
 from .upsample_nearest2d import upsample_nearest2d
 from .weight_norm import (
