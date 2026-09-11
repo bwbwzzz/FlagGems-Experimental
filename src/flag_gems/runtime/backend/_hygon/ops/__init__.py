@@ -31,6 +31,7 @@ from .attention import (
 from .avg_pool3d_backward import avg_pool3d_backward
 from .broadcast_tensors import broadcast_tensors
 from .broadcast_to import broadcast_to
+from .cholesky_inverse import cholesky_inverse
 from .conj_physical import conj_physical
 from .cudnn_convolution import cudnn_convolution
 from .diff import diff
@@ -83,8 +84,10 @@ from .max_unpool2d import max_unpool2d
 from .median import median_dim, median_dim_values
 from .mm import mm
 from .mul import mul, mul_
+from .mvlgamma import mvlgamma
 from .nansum import nansum, nansum_out
 from .nll_loss_backward import heur_block_n, nll_loss_backward
+from .nonzero_numpy import nonzero_numpy
 from .per_token_group_quant_fp8 import SUPPORTED_FP8_DTYPE, per_token_group_quant_fp8
 from .pow import (
     pow_scalar,
@@ -102,6 +105,7 @@ from .replication_pad2d_backward import (
     replication_pad2d_backward,
     replication_pad2d_backward_grad_input,
 )
+from .replication_pad3d_backward import replication_pad3d_backward
 from .scatter import scatter, scatter_
 from .searchsorted import (
     searchsorted,
@@ -116,6 +120,10 @@ from .special_chebyshev_polynomial_v import special_chebyshev_polynomial_v
 from .special_chebyshev_polynomial_w import (
     special_chebyshev_polynomial_w,
     special_chebyshev_polynomial_w_out,
+)
+from .special_multigammaln import special_multigammaln
+from .special_shifted_chebyshev_polynomial_u import (
+    special_shifted_chebyshev_polynomial_u,
 )
 from .split_with_sizes_copy import split_with_sizes_copy
 from .tile import tile
@@ -146,6 +154,7 @@ __all__ = [
     "avg_pool3d_backward",
     "broadcast_tensors",
     "broadcast_to",
+    "cholesky_inverse",
     "conj_physical",
     "cudnn_convolution",
     "diff",
@@ -192,9 +201,11 @@ __all__ = [
     "mm",
     "mul",
     "mul_",
+    "mvlgamma",
     "nansum",
     "nansum_out",
     "nll_loss_backward",
+    "nonzero_numpy",
     "per_token_group_quant_fp8",
     "pool3d_output_size",
     "pow_scalar",
@@ -212,6 +223,7 @@ __all__ = [
     "replication_pad2d",
     "replication_pad2d_backward",
     "replication_pad2d_backward_grad_input",
+    "replication_pad3d_backward",
     "scaled_dot_product_attention",
     "scaled_dot_product_attention_backward",
     "scaled_dot_product_attention_forward",
@@ -230,6 +242,8 @@ __all__ = [
     "special_chebyshev_polynomial_v",
     "special_chebyshev_polynomial_w",
     "special_chebyshev_polynomial_w_out",
+    "special_multigammaln",
+    "special_shifted_chebyshev_polynomial_u",
     "split_with_sizes_copy",
     "tile",
     "true_divide",
