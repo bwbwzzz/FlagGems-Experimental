@@ -29,6 +29,7 @@ from .attention import (
     scaled_dot_product_attention_forward,
 )
 from .avg_pool3d_backward import avg_pool3d_backward
+from .baddbmm_ import baddbmm_
 from .broadcast_tensors import broadcast_tensors
 from .broadcast_to import broadcast_to
 from .cholesky_inverse import cholesky_inverse
@@ -151,6 +152,7 @@ __all__ = [
     "any_dim",
     "any_dims",
     "avg_pool3d_backward",
+    "baddbmm_",
     "broadcast_tensors",
     "broadcast_to",
     "cholesky_inverse",
