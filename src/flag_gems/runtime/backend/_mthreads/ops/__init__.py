@@ -19,6 +19,7 @@ from ._thnn_fused_lstm_cell_backward_impl import _thnn_fused_lstm_cell_backward_
 from ._upsample_bilinear2d_aa import _upsample_bilinear2d_aa
 from ._upsample_nearest_exact2d_backward import _upsample_nearest_exact2d_backward
 from .adaptive_avg_pool2d_backward import _adaptive_avg_pool2d_backward
+from .addmv_ import addmv_
 from .all import all, all_dim, all_dims
 from .amax import amax
 from .any import any, any_dim, any_dims
@@ -110,10 +111,12 @@ from .resolve_conj import resolve_conj
 from .round_ import round_
 from .softplus_backward import softplus_backward
 from .sort import sort, sort_stable
+from .special_bessel_j0 import special_bessel_j0
 from .special_bessel_j1 import special_bessel_j1
 from .special_bessel_y0 import special_bessel_y0
 from .special_erfcx import special_erfcx
 from .special_gammainc import special_gammainc
+from .special_multigammaln import special_multigammaln
 from .special_round import special_round
 from .special_round_out import special_round_out
 from .tile import tile
@@ -133,6 +136,7 @@ __all__ = [
     "_thnn_fused_lstm_cell_backward_impl",
     "_upsample_bilinear2d_aa",
     "_upsample_nearest_exact2d_backward",
+    "addmv_",
     "amax",
     "all",
     "all_dim",
@@ -240,10 +244,12 @@ __all__ = [
     "softplus_backward",
     "sort",
     "sort_stable",
+    "special_bessel_j0",
     "special_bessel_j1",
     "special_bessel_y0",
     "special_erfcx",
     "special_gammainc",
+    "special_multigammaln",
     "special_round",
     "special_round_out",
     "tile",
