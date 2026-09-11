@@ -1,6 +1,8 @@
 import pytest
 import torch
 
+import flag_gems
+
 from . import base
 
 
@@ -19,6 +21,7 @@ def test_special_bessel_j0():
         op_name="special_bessel_j0",
         torch_op=torch.special.bessel_j0,
         # torch.special.bessel_j0 supports float32 and float64
-        dtypes=[torch.float32, torch.float64],
+        dtypes=[torch.float32]
+        + ([torch.float64] if flag_gems.runtime.device.support_fp64 else []),
     )
     bench.run()
