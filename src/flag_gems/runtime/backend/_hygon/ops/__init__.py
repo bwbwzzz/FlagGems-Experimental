@@ -17,8 +17,13 @@ from ._flash_attention_forward import _flash_attention_forward
 # Hygon internal implementation for attention
 from ._scaled_dot_product_flash_attention import _scaled_dot_product_flash_attention
 from .adaptive_avg_pool2d_backward import adaptive_avg_pool2d_backward
+from .adaptive_max_pool2d_backward import adaptive_max_pool2d_backward
 from .adaptive_max_pool3d_backward import adaptive_max_pool3d_backward
+from .addmv_ import addmv_
 from .addr import addr
+from .amp_foreach_non_finite_check_and_unscale_ import (
+    amp_foreach_non_finite_check_and_unscale_,
+)
 from .any import any, any_dim, any_dims
 from .attention import (
     ScaleDotProductAttention,
@@ -30,11 +35,13 @@ from .attention import (
 )
 from .avg_pool3d_backward import avg_pool3d_backward
 from .baddbmm_ import baddbmm_
+from .binary_cross_entropy_backward import binary_cross_entropy_backward
 from .broadcast_tensors import broadcast_tensors
 from .broadcast_to import broadcast_to
 from .cholesky_inverse import cholesky_inverse
 from .conj_physical import conj_physical
 from .cudnn_convolution import cudnn_convolution
+from .diagonal_scatter import diagonal_scatter
 from .diff import diff
 from .div import (
     div_mode,
@@ -49,6 +56,7 @@ from .div import (
     trunc_divide,
     trunc_divide_,
 )
+from .embedding_bag_dense_backward import embedding_bag_dense_backward
 from .exponential import exponential
 from .exponential_ import exponential_
 from .fill import (
@@ -59,13 +67,16 @@ from .fill import (
     fill_tensor_,
     fill_tensor_out,
 )
+from .fused_moving_avg_obs_fq_helper import fused_moving_avg_obs_fq_helper
 from .gelu import gelu, gelu_, gelu_backward
 from .hadamard_transform import hadamard_transform
 from .index_add import index_add, index_add_
 from .index_copy_ import index_copy, index_copy_
 from .index_select_backward import index_select_backward
 from .isin import isin
+from .jagged_to_padded_dense_forward import jagged_to_padded_dense_forward
 from .lcm import lcm, lcm_
+from .lift_fresh import lift_fresh
 from .linalg_ldl_factor import ldl_factor
 from .linalg_matrix_norm import linalg_matrix_norm
 from .linalg_solve_triangular import (
@@ -84,6 +95,7 @@ from .max_pool3d_with_indices import (
 from .max_unpool2d import max_unpool2d
 from .median import median_dim, median_dim_values
 from .mm import mm
+from .mse_loss_backward import mse_loss_backward
 from .mul import mul, mul_
 from .mvlgamma import mvlgamma
 from .nansum import nansum, nansum_out
@@ -98,9 +110,11 @@ from .pow import (
     pow_tensor_tensor_,
 )
 from .randperm import randperm
+from .reflection_pad1d_backward import reflection_pad1d_backward
 from .reflection_pad3d_backward import reflection_pad3d_backward
 from .renorm import renorm, renorm_
 from .repeat import repeat
+from .replication_pad2d import replication_pad2d
 from .replication_pad2d_backward import (
     replication_pad2d_backward,
     replication_pad2d_backward_grad_input,
@@ -116,14 +130,19 @@ from .searchsorted import (
 from .silu import silu, silu_, silu_backward
 from .softplus_backward import softplus_backward
 from .sort import sort, sort_stable
+from .special_chebyshev_polynomial_u import special_chebyshev_polynomial_u
 from .special_chebyshev_polynomial_v import special_chebyshev_polynomial_v
 from .special_chebyshev_polynomial_w import (
     special_chebyshev_polynomial_w,
     special_chebyshev_polynomial_w_out,
 )
 from .special_multigammaln import special_multigammaln
+from .special_round import special_round
 from .special_shifted_chebyshev_polynomial_u import (
     special_shifted_chebyshev_polynomial_u,
+)
+from .special_shifted_chebyshev_polynomial_v import (
+    special_shifted_chebyshev_polynomial_v,
 )
 from .split_with_sizes_copy import split_with_sizes_copy
 from .tile import tile
@@ -131,6 +150,7 @@ from .unique import _unique2
 from .unique_dim import unique_dim
 from .unsqueeze import unsqueeze, unsqueeze_
 from .upsample_nearest2d import upsample_nearest2d
+from .upsample_nearest_exact2d_backward import upsample_nearest_exact2d_backward
 from .weight_norm import (
     weight_norm,
     weight_norm_except_dim,
@@ -146,21 +166,27 @@ __all__ = [
     "_scaled_dot_product_flash_attention",
     "_unique2",
     "adaptive_avg_pool2d_backward",
+    "adaptive_max_pool2d_backward",
     "adaptive_max_pool3d_backward",
+    "addmv_",
     "addr",
+    "amp_foreach_non_finite_check_and_unscale_",
     "any",
     "any_dim",
     "any_dims",
     "avg_pool3d_backward",
     "baddbmm_",
+    "binary_cross_entropy_backward",
     "broadcast_tensors",
     "broadcast_to",
     "cholesky_inverse",
     "conj_physical",
     "cudnn_convolution",
+    "diagonal_scatter",
     "diff",
     "div_mode",
     "div_mode_",
+    "embedding_bag_dense_backward",
     "exponential",
     "exponential_",
     "fill_scalar",
@@ -173,6 +199,7 @@ __all__ = [
     "flash_attn_varlen_func",
     "floor_divide",
     "floor_divide_",
+    "fused_moving_avg_obs_fq_helper",
     "gelu",
     "gelu_",
     "gelu_backward",
@@ -184,9 +211,11 @@ __all__ = [
     "index_copy_",
     "index_select_backward",
     "isin",
+    "jagged_to_padded_dense_forward",
     "lcm",
     "lcm_",
     "ldl_factor",
+    "lift_fresh",
     "linalg_matrix_norm",
     "linalg_solve_triangular",
     "linalg_solve_triangular_out",
@@ -200,6 +229,7 @@ __all__ = [
     "median_dim",
     "median_dim_values",
     "mm",
+    "mse_loss_backward",
     "mul",
     "mul_",
     "mvlgamma",
@@ -215,12 +245,14 @@ __all__ = [
     "pow_tensor_tensor",
     "pow_tensor_tensor_",
     "randperm",
+    "reflection_pad1d_backward",
     "reflection_pad3d_backward",
     "remainder",
     "remainder_",
     "renorm",
     "renorm_",
     "repeat",
+    "replication_pad2d",
     "replication_pad2d_backward",
     "replication_pad2d_backward_grad_input",
     "replication_pad3d_backward",
@@ -239,11 +271,14 @@ __all__ = [
     "softplus_backward",
     "sort",
     "sort_stable",
+    "special_chebyshev_polynomial_u",
     "special_chebyshev_polynomial_v",
     "special_chebyshev_polynomial_w",
     "special_chebyshev_polynomial_w_out",
     "special_multigammaln",
+    "special_round",
     "special_shifted_chebyshev_polynomial_u",
+    "special_shifted_chebyshev_polynomial_v",
     "split_with_sizes_copy",
     "tile",
     "true_divide",
@@ -255,6 +290,7 @@ __all__ = [
     "unsqueeze",
     "unsqueeze_",
     "upsample_nearest2d",
+    "upsample_nearest_exact2d_backward",
     "weight_norm",
     "weight_norm_except_dim",
     "weight_norm_except_dim_backward",
