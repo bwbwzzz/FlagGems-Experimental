@@ -126,6 +126,7 @@ from .special_shifted_chebyshev_polynomial_u import (
 )
 from .split_with_sizes_copy import split_with_sizes_copy
 from .tile import tile
+from .unbind_copy import unbind_copy
 from .unique import _unique2
 from .unique_dim import unique_dim
 from .unsqueeze import unsqueeze, unsqueeze_
@@ -249,6 +250,7 @@ __all__ = [
     "true_divide_out",
     "trunc_divide",
     "trunc_divide_",
+    "unbind_copy",
     "unique_dim",
     "unsqueeze",
     "unsqueeze_",
