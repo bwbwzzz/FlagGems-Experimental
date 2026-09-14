@@ -65,7 +65,7 @@ from .index_copy_ import index_copy, index_copy_
 from .index_select_backward import index_select_backward
 from .isin import isin
 from .lcm import lcm, lcm_
-from .linalg_ldl_factor import ldl_factor
+from .linalg_ldl_factor import ldl_factor, linalg_ldl_factor
 from .linalg_matrix_norm import linalg_matrix_norm
 from .linalg_solve_triangular import (
     linalg_solve_triangular,
@@ -185,6 +185,7 @@ __all__ = [
     "lcm",
     "lcm_",
     "ldl_factor",
+    "linalg_ldl_factor",
     "linalg_matrix_norm",
     "linalg_solve_triangular",
     "linalg_solve_triangular_out",
