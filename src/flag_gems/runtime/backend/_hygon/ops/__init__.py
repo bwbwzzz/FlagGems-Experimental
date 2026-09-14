@@ -50,6 +50,7 @@ from .div import (
 )
 from .exponential import exponential
 from .exponential_ import exponential_
+from .feature_dropout import feature_dropout
 from .fill import (
     fill_scalar,
     fill_scalar_,
@@ -161,6 +162,7 @@ __all__ = [
     "div_mode_",
     "exponential",
     "exponential_",
+    "feature_dropout",
     "fill_scalar",
     "fill_scalar_",
     "fill_scalar_out",
