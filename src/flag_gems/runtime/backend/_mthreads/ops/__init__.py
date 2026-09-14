@@ -33,6 +33,7 @@ from .batch_norm import batch_norm, batch_norm_backward
 from .bucketize import bucketize
 from .celu import celu
 from .channel_shuffle import channel_shuffle
+from .cholesky_inverse import cholesky_inverse
 from .conv2d import conv2d
 from .conv_transpose1d import conv_transpose1d, conv_transpose1d_output_size
 from .div import (
@@ -66,6 +67,7 @@ from .lift_fresh import lift_fresh
 from .lift_out import lift_out
 from .linalg_cholesky import linalg_cholesky
 from .linalg_ldl_factor_ex import ldl_factor_ex
+from .linalg_ldl_solve import linalg_ldl_solve
 from .linear import linear
 from .log import log
 from .log10 import log10, log10_, log10_out
@@ -90,6 +92,7 @@ from .normal import normal_
 from .one_hot import one_hot
 from .ones import ones
 from .ones_like import ones_like
+from .ormqr import ormqr
 from .pad import constant_pad_nd, pad
 from .permute_copy import permute_copy
 from .prod import prod, prod_dim
@@ -157,6 +160,7 @@ __all__ = [
     "celu",
     # "celu_",
     "channel_shuffle",
+    "cholesky_inverse",
     "conv2d",
     "conv_transpose1d",
     "conv_transpose1d_output_size",
@@ -189,6 +193,7 @@ __all__ = [
     "lift_fresh",
     "lift_out",
     "linalg_cholesky",
+    "linalg_ldl_solve",
     "linear",
     "log",
     "log10",
@@ -223,6 +228,7 @@ __all__ = [
     "ones",
     "ones_like",
     "constant_pad_nd",
+    "ormqr",
     "pad",
     "permute_copy",
     "prod",
