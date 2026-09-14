@@ -120,6 +120,7 @@ from .special_chebyshev_polynomial_w import (
     special_chebyshev_polynomial_w,
     special_chebyshev_polynomial_w_out,
 )
+from .special_hermite_polynomial_h import special_hermite_polynomial_h
 from .special_multigammaln import special_multigammaln
 from .special_shifted_chebyshev_polynomial_u import (
     special_shifted_chebyshev_polynomial_u,
@@ -240,6 +241,7 @@ __all__ = [
     "special_chebyshev_polynomial_v",
     "special_chebyshev_polynomial_w",
     "special_chebyshev_polynomial_w_out",
+    "special_hermite_polynomial_h",
     "special_multigammaln",
     "special_shifted_chebyshev_polynomial_u",
     "split_with_sizes_copy",
