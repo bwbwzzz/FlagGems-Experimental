@@ -129,6 +129,7 @@ from .tile import tile
 from .unique import _unique2
 from .unique_dim import unique_dim
 from .unsqueeze import unsqueeze, unsqueeze_
+from .upsample_linear1d import upsample_linear1d
 from .upsample_nearest2d import upsample_nearest2d
 from .weight_norm import (
     weight_norm,
@@ -252,6 +253,7 @@ __all__ = [
     "unique_dim",
     "unsqueeze",
     "unsqueeze_",
+    "upsample_linear1d",
     "upsample_nearest2d",
     "weight_norm",
     "weight_norm_except_dim",
