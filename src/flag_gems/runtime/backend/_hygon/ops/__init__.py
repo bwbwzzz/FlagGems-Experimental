@@ -124,6 +124,9 @@ from .special_multigammaln import special_multigammaln
 from .special_shifted_chebyshev_polynomial_u import (
     special_shifted_chebyshev_polynomial_u,
 )
+from .special_shifted_chebyshev_polynomial_v import (
+    special_shifted_chebyshev_polynomial_v,
+)
 from .split_with_sizes_copy import split_with_sizes_copy
 from .tile import tile
 from .unique import _unique2
@@ -242,6 +245,7 @@ __all__ = [
     "special_chebyshev_polynomial_w_out",
     "special_multigammaln",
     "special_shifted_chebyshev_polynomial_u",
+    "special_shifted_chebyshev_polynomial_v",
     "split_with_sizes_copy",
     "tile",
     "true_divide",
